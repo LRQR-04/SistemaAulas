@@ -13,7 +13,6 @@ export class ControladorAutenticacion {
 
   static async registro(req, res) {
     try {
-      console.log(req.body);
       const id = await ServicioAutenticacion.registro(req.body);
       res.json({ id });
     } catch (error) {
