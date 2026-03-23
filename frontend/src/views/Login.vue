@@ -22,7 +22,7 @@ const login = async () => {
 
     auth.setAuth(res.data.usuario, res.data.token)
     router.push('/dashboard')
-  } catch (error) {
+  } catch (e) {
     error.value = 'Credenciales incorrectas'
   }
 }
