@@ -24,7 +24,7 @@ export class ServicioReservacion {
 
   static async getAll() {
     const [rows] = await pool.query(
-      "SELECT id_usuario, id_espacio, fecha_uso, hora_inicio, hora_fin, fecha_reservacion, estatus FROM reservations",
+      "SELECT id_usuario, id_espacio, fecha_uso, hora_inicio, hora_fin, fecha_reservacion, estatus FROM reservaciones",
     );
     return rows;
   }
