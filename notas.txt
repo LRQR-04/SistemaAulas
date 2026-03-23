@@ -5,6 +5,8 @@ npm init -y
 npm install express mysql2 bcrypt jsonwebtoken dotenv cors
 npm install nodemon -D
 
+- Todas las contraseñas son: abCD*1234
+
 front
 cd frontend
 npm run dev
@@ -60,5 +62,5 @@ CREATE INDEX idx_reservaciones_usuario ON reservaciones(id_usuario); -- Búsqued
 CREATE INDEX idx_reservaciones_espacio ON reservaciones(id_espacio); -- Búsqueda reservaciones por espacio
 CREATE INDEX idx_reservaciones_busqueda ON reservaciones(id_espacio, fecha_uso, hora_inicio, hora_fin); -- Búsqueda por espacio -> fecha -> rango de horas
 CREATE INDEX idx_reservaciones_fecha ON reservaciones(fecha_uso); -- Búsqueda reservaciones por fecha
-
+CREATE UNIQUE INDEX idx_email ON usuarios(correo); -- Correo único
     
