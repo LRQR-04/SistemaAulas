@@ -1,0 +1,64 @@
+npm create vue@latest frontend
+npm install vue-router pinia axios
+
+npm init -y
+npm install express mysql2 bcrypt jsonwebtoken dotenv cors
+npm install nodemon -D
+
+front
+cd frontend
+npm run dev
+
+back
+cd backend
+npm run dev
+
+CREATE TABLE usuarios (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(100) NOT NULL UNIQUE,
+    contrasenia VARCHAR(255) NOT NULL,
+    tipo ENUM('estudiante', 'profesor', 'admin') NOT NULL,
+    reservaciones_disponibles INT DEFAULT 0,
+    estatus ENUM('activo', 'inactivo') DEFAULT 'activo'
+);
+
+CREATE TABLE espacios (
+    id_espacio INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    tipo ENUM('aula', 'laboratorio', 'computo') NOT NULL,
+    capacidad INT NOT NULL,
+    ubicacion VARCHAR(150),
+    estatus ENUM('disponible', 'no_disponible') DEFAULT 'disponible'
+);
+
+
+CREATE TABLE reservaciones (
+    id_reservacion INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_espacio INT NOT NULL,
+    fecha_uso DATE NOT NULL,         
+    hora_inicio TIME NOT NULL,
+    hora_fin TIME NOT NULL,
+    fecha_reservacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+    estatus ENUM('cancelada', 'completada') DEFAULT 'completada',
+
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+        
+    FOREIGN KEY (id_espacio) REFERENCES espacios(id_espacio)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+-- INDICES
+CREATE INDEX idx_usuario_correo ON usuarios(correo); -- Búsqueda rápida por email
+CREATE INDEX idx_espacio_tipo ON espacios(tipo); -- Búsqueda por tipo de espacio
+CREATE INDEX idx_espacio_estatus ON espacios(estatus); -- Búsqueda por disponibilidad
+CREATE INDEX idx_reservaciones_usuario ON reservaciones(id_usuario); -- Búsqueda reservaciones por usuario
+CREATE INDEX idx_reservaciones_espacio ON reservaciones(id_espacio); -- Búsqueda reservaciones por espacio
+CREATE INDEX idx_reservaciones_busqueda ON reservaciones(id_espacio, fecha_uso, hora_inicio, hora_fin); -- Búsqueda por espacio -> fecha -> rango de horas
+CREATE INDEX idx_reservaciones_fecha ON reservaciones(fecha_uso); -- Búsqueda reservaciones por fecha
+
+    

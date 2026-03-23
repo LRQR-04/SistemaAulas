@@ -1,0 +1,32 @@
+frontend/
+│
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── Calendar.vue *
+│   │   ├── ReservationForm.vue *
+│   │   ├── RoomCard.vue *
+│   │   └── Navbar.vue *
+│
+│   ├── views/
+│   │   ├── Login.vue *
+│   │   ├── Dashboard.vue *
+│   │   ├── Reservations.vue *
+│   │   ├── Rooms.vue *
+│   │   └── Reports.vue
+│
+│   ├── router/
+│   │   └── index.js *
+│
+│   ├── store/ (Pinia o Vuex)
+│   │   ├── auth.js *
+│   │   ├── reservations.js
+│   │   └── rooms.js
+│
+│   ├── services/ # consumo API
+│   │   ├── api.js *
+│   │   ├── auth.service.js
+│   │   ├── reservation.service.js
+│   │   └── room.service.js
+│
+│   └── App.vue *

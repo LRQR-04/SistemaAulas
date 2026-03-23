@@ -1,0 +1,42 @@
+backend/
+│
+├── src/
+│   ├── config/
+│   │   └── db.js *
+│
+│   ├── controllers/
+│   │   ├── auth.controller.js *
+│   │   ├── reservation.controller.js *
+│   │   ├── room.controller.js
+│   │   └── report.controller.js
+│
+│   ├── services/
+│   │   ├── auth.service.js *
+│   │   ├── reservation.service.js *
+│   │   ├── rules.service.js *
+│   │   └── report.service.js
+│
+│   ├── models/
+│   │   ├── user.model.js *
+│   │   ├── reservation.model.js
+│   │   ├── room.model.js
+│   │   └── schedule.model.js
+│
+│   ├── routes/
+│   │   ├── auth.routes.js *
+│   │   ├── reservation.routes.js *
+│   │   ├── room.routes.js *
+│   │   └── report.routes.js *
+│
+│   ├── middlewares/
+│   │   ├── auth.middleware.js *
+│   │   ├── role.middleware.js *
+│   │   └── error.middleware.js
+│
+│   ├── utils/
+│   │   ├── hash.js
+│   │   └── validators.js
+│
+│   └── app.js *
+│
+└── server.js
