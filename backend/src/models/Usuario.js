@@ -2,10 +2,9 @@ import { pool } from "../config/db.js";
 
 export class Usuario {
   static async buscarPorEmail(correo) {
-    const [rows] = await pool.query(
-      "SELECT id_usuario, nombre, correo, tipo, reservaciones_disponibles, estatus FROM usuarios WHERE correo = ?",
-      [correo],
-    );
+    const [rows] = await pool.query("SELECT * FROM usuarios WHERE correo = ?", [
+      correo,
+    ]);
     return rows[0];
   }
 
