@@ -1,5 +1,6 @@
 npm create vue@latest frontend
 npm install vue-router pinia axios
+npm install lucide-vue-next
 
 npm init -y
 npm install express mysql2 bcrypt jsonwebtoken dotenv cors
