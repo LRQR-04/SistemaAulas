@@ -12,7 +12,7 @@ const auth = useAuthStore()
 const router = useRouter()
 
 const login = async () => {
-  const error = ref('')
+  error.value = ''
 
   try {
     const res = await api.post('/auth/login', {
