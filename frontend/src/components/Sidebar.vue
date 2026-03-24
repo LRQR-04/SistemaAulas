@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { useAuthStore } from '../store/auth'
 import { useRouter } from 'vue-router'
 
-import { LayoutDashboard, CalendarDays, Building2, BarChart3, LogOut } from 'lucide-vue-next'
+import { LayoutDashboard, Users, CalendarDays, Building2, BarChart3, LogOut } from 'lucide-vue-next'
 
 const auth = useAuthStore()
 const router = useRouter()
@@ -14,6 +14,7 @@ const menu = computed(() => {
   if (tipo.value === 'admin') {
     return [
       { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
+      { name: 'Usuarios', path: '/usuarios', icon: Users },
       { name: 'Espacios', path: '/espacios', icon: Building2 },
       { name: 'Reservaciones', path: '/reservaciones', icon: CalendarDays },
       { name: 'Reportes', path: '/reportes', icon: BarChart3 },
